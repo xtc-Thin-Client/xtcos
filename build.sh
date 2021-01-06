@@ -2,6 +2,7 @@
 
 git clone https://github.com/RPi-Distro/pi-gen
 cp -r ./stagetm ./pi-gen
+cp -r ./patch ./pi-gen
 cd pi-gen
 echo "IMG_NAME='xtcos'" > config
 echo "HOSTNAME='xtc'" >> config
