@@ -109,5 +109,5 @@ mount -v "$DATA_DEV" "${ROOTFS_DIR}/data" -t ext4
 
 rsync -aHAXx --exclude /var/cache/apt/archives --exclude /boot --exclude /data "${EXPORT_ROOTFS_DIR}/" "${ROOTFS_DIR}/"
 rsync -rtx "${EXPORT_ROOTFS_DIR}/boot/" "${ROOTFS_DIR}/boot/"
-rsync -rtx "${EXPORT_ROOTFS_DIR}/data/" "${ROOTFS_DIR}/data/"
+#rsync -rtx "${EXPORT_ROOTFS_DIR}/data/" "${ROOTFS_DIR}/data/"
 
