@@ -42,11 +42,11 @@ PARTED_OUT=$(parted -sm "${IMG_FILE}" unit b print)
 BOOT_OFFSET=$(echo "$PARTED_OUT" | grep -e '^1:' | cut -d':' -f 2 | tr -d B)
 BOOT_LENGTH=$(echo "$PARTED_OUT" | grep -e '^1:' | cut -d':' -f 4 | tr -d B)
 
-DATA_OFFSET=$(echo "$PARTED_OUT" | grep -e '^3:' | cut -d':' -f 2 | tr -d B)
-DATA_LENGTH=$(echo "$PARTED_OUT" | grep -e '^3:' | cut -d':' -f 4 | tr -d B)
+DATA_OFFSET=$(echo "$PARTED_OUT" | grep -e '^2:' | cut -d':' -f 2 | tr -d B)
+DATA_LENGTH=$(echo "$PARTED_OUT" | grep -e '^2:' | cut -d':' -f 4 | tr -d B)
 
-ROOT_OFFSET=$(echo "$PARTED_OUT" | grep -e '^2:' | cut -d':' -f 2 | tr -d B)
-ROOT_LENGTH=$(echo "$PARTED_OUT" | grep -e '^2:' | cut -d':' -f 4 | tr -d B)
+ROOT_OFFSET=$(echo "$PARTED_OUT" | grep -e '^3:' | cut -d':' -f 2 | tr -d B)
+ROOT_LENGTH=$(echo "$PARTED_OUT" | grep -e '^3:' | cut -d':' -f 4 | tr -d B)
 
 echo "Mounting BOOT_DEV..."
 cnt=0
