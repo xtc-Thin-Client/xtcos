@@ -7,4 +7,5 @@ echo "deb https://dl.bintray.com/xtc-thin-client/xtc buster main" > /etc/apt/sou
 apt-get update
 apt-get -y install xtcbase xtc tightvncserver
 apt-get -y remove pulseaudio
+apt-get -y autoremove
 EOF
