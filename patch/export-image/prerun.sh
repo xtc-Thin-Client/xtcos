@@ -101,7 +101,7 @@ mkdosfs -n boot -F 32 -v "$BOOT_DEV" > /dev/null
 mkfs.ext4 -L rootfs -O "$ROOT_FEATURES" "$DATA_DEV" > /dev/null
 mkfs.ext4 -L rootfs -O "$ROOT_FEATURES" "$ROOT_DEV" > /dev/null
 
-mount -v "$ROOT_DEV" "${ROOTFS_DIR}" -t ext4
+mount -v "$ROOT_DEV" "${ROOTFS_DIR}/" -t ext4
 mkdir -p "${ROOTFS_DIR}/boot"
 mount -v "$BOOT_DEV" "${ROOTFS_DIR}/boot" -t vfat
 mkdir -p "${ROOTFS_DIR}/data"
@@ -109,5 +109,4 @@ mount -v "$DATA_DEV" "${ROOTFS_DIR}/data" -t ext4
 
 rsync -aHAXx --exclude /var/cache/apt/archives --exclude /boot --exclude /data "${EXPORT_ROOTFS_DIR}/" "${ROOTFS_DIR}/"
 rsync -rtx "${EXPORT_ROOTFS_DIR}/boot/" "${ROOTFS_DIR}/boot/"
-#rsync -rtx "${EXPORT_ROOTFS_DIR}/data/" "${ROOTFS_DIR}/data/"
 
